@@ -25,6 +25,7 @@
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
             <form class="form-horizontal" role="form">
+                <div class="col-md-6">
                 <label for="font_select">font
                 <select id="font_select" class="form-control input-sm">
                 %for font in sorted(fonts):
@@ -40,8 +41,9 @@
                 %end
                 </select>
                 </label>
+                </div>
                 
-                <div class="pull-right">
+                <div class="col-md-2 col-md-offset-4">
                 <label for="theme_select">theme
                 <select id="theme_select" class="form-control input-sm">
                 %for theme in sorted(themes):

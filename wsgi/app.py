@@ -1,6 +1,8 @@
 import os
-import bottle
+import inspect
+import collections
 
+import bottle
 import pygments
 from pygments import lexers
 from pygments import styles
@@ -12,9 +14,7 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 VIEWS_DIR = os.path.join(BASE_DIR, 'views')
 bottle.TEMPLATE_PATH.insert(0, VIEWS_DIR)
 
-CODE = """for i in range(10):
-    print "test" * i
-"""
+CODE = inspect.getsource(collections.namedtuple) + '\n' + 'a' * 200
 
 FONTS = ['consolas', 'droid sans mono', 'source code pro', 'ubuntu mono',
     'inconsolata', 'anonymous pro']
