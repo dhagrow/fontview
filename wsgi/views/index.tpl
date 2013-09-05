@@ -3,7 +3,7 @@
   <head>
     <title>Font Previewer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/cyborg/bootstrap.min.css" rel="stylesheet">
+    <link id="bootstrap_style" href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/cyborg/bootstrap.min.css" rel="stylesheet">
     <link href="/static/css/style.css" rel="stylesheet">
     
     <style>
@@ -22,15 +22,48 @@
         <h1>Preview</h1>
         </div>
     
-        <div class="panel panel-default">
-          <div class="panel-heading">Config</div>
-          <div class="panel-body">
-{{! code }}
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <form class="form-horizontal" role="form">
+                <label for="font_select">font
+                <select id="font_select" class="form-control input-sm">
+                %for font in sorted(fonts):
+                  <option>{{ font.title() }}</option>
+                %end
+                </select>
+                </label>
+                
+                <label for="style_select">style
+                <select id="style_select" class="form-control input-sm">
+                %for style in sorted(styles):
+                  <option>{{ style.title() }}</option>
+                %end
+                </select>
+                </label>
+                
+                <div class="pull-right">
+                <label for="theme_select">theme
+                <select id="theme_select" class="form-control input-sm">
+                %for theme in sorted(themes):
+                  <option>{{ theme.title() }}</option>
+                %end
+                </select>
+                </label>
+                </div>
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <div class="well">
+              {{! code }}
+            </div>
           </div>
         </div>
     </div>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/webfont/1.3.0/webfont.js"></script>
+    <script src="/static/js/script.js"></script>
   </body>
 </html>
