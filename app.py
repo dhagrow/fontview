@@ -27,14 +27,16 @@ def run_simple_httpd_server(app, ip, port=8080):
 #  main():
 #
 if __name__ == '__main__':
-   from wsgi.app import application
-   
-   ip   = os.environ['OPENSHIFT_PYTHON_IP']
-   port = int(os.environ['OPENSHIFT_PYTHON_PORT'])
-
-   print('Starting server on %s:%d ... ' % (ip, port))
-   try:
-       run_waitress_server(application, ip, port)
-   except:
-       print("could not load waitress - using default simple server ...")
-       run_simple_httpd_server(application, ip, port)
+    from wsgi.app import application
+    
+    ip   = os.environ['OPENSHIFT_PYTHON_IP']
+    port = int(os.environ['OPENSHIFT_PYTHON_PORT'])
+    
+    print('Starting server on %s:%d ... ' % (ip, port))
+    try:
+        run_waitress_server(application, ip, port)
+    except Exception:
+        import traceback
+        traceback.print_exc()
+        print("could not load waitress - using default simple server ...")
+        run_simple_httpd_server(application, ip, port)
