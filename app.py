@@ -12,7 +12,7 @@ except IOError:
 
 def run_waitress_server(app, ip, port=8080):
    import waitress
-   waitress.serve(app, ip, port)
+   waitress.serve(app, host=ip, port=port)
 
 def run_simple_httpd_server(app, ip, port=8080):
    from wsgiref.simple_server import make_server
@@ -36,7 +36,5 @@ if __name__ == '__main__':
     try:
         run_waitress_server(application, ip, port)
     except Exception:
-        import traceback
-        traceback.print_exc()
         print("could not load waitress - using default simple server ...")
         run_simple_httpd_server(application, ip, port)
