@@ -27,13 +27,14 @@ def run_simple_httpd_server(app, ip, port=8080):
 #  main():
 #
 if __name__ == '__main__':
+   from wsgi.app import application
+   
    ip   = os.environ['OPENSHIFT_PYTHON_IP']
    port = int(os.environ['OPENSHIFT_PYTHON_PORT'])
-   zapp = imp.load_source('application', 'wsgi/application')
 
    print('Starting server on %s:%d ... ' % (ip, port))
    try:
-       run_waitress_server(zapp.application, ip, port)
+       run_waitress_server(application, ip, port)
    except:
        print("could not load waitress - using default simple server ...")
-       run_simple_httpd_server(zapp.application, ip, port)
+       run_simple_httpd_server(application, ip, port)
