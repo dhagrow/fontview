@@ -15,8 +15,6 @@ CODE = """for i in range(10):
     print "test" * i
 """
 
-PRESTYLE = 'background: initial; border-radius: initial'
-
 application = bottle.default_app()
 
 @bottle.get('/static/<path:path>')
@@ -32,10 +30,13 @@ def favicon():
 def index():
     lexer = lexers.get_lexer_by_name("python", stripall=True)
     formatter = formatters.HtmlFormatter(
-        linenos=True, cssclass="source", prestyles=PRESTYLE, style="monokai")
+        linenos=True, cssclass="source", style="monokai")
     output = pygments.highlight(CODE, lexer, formatter)
     return {'code': output, 'style': formatter.get_style_defs()}
 
 def run():
     bottle.run(host='localhost', port=22344, server='waitress',
         reloader=True, debug=True)
+
+if __name__ == '__main__':
+    run()

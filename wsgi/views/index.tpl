@@ -3,15 +3,16 @@
   <head>
     <title>Font Previewer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/cyborg/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
     
     <style>
 {{ style }}
     </style>
 
     <!--[if lt IE 9]>
-      <script src="/static/js/html5shiv.js"></script>
-      <script src="/static/js/js/respond.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.min.js"></script>
     <![endif]-->
   </head>
   
@@ -29,7 +30,7 @@
         </div>
     </div>
 
-    <script src="/static/js/jquery.min.js"></script>
-    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>-->
   </body>
 </html>
