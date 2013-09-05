@@ -1,15 +1,13 @@
 from setuptools import setup
 
-setup(name='YourAppName', version='1.0',
-      description='OpenShift Python-3.3 Community Cartridge based application',
-      author='Your Name', author_email='ramr@example.org',
-      url='http://www.python.org/sigs/distutils-sig/',
-
-      #  Uncomment one or more lines below in the install_requires section
-      #  for the specific client drivers/modules your application needs.
-      install_requires=['CherryPy',
-                        #  'mysql-connector-python',
-                        #  'pymongo',
-                        #  'psycopg2',
-      ],
-     )
+setup(name='fontview', version='0.1',
+    description='Font Previewer',
+    author='Miguel Turner', author_email='cymrow at gmail.com',
+    url='http://fontview-dhagrow.rhcloud.com',
+    
+    install_requires=[
+        'bottle==11.6',
+        'waitress==0.8.7',
+        'pygments==1.6',
+        ],
+    )
