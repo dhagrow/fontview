@@ -3,6 +3,7 @@ pre {
     background: initial;
     border-color: #4B4B4B;
     font-family: "Source Code Pro";
+    overflow: auto;
 }
 
 span {
@@ -13,19 +14,6 @@ span {
     background: initial;
 }
 
-.linenodiv pre {
-    word-break: normal;
-    word-wrap: normal;
-    white-space: pre;
-}
-
 .source {
     border-radius: 4px;
-}
-
-.source pre {
-    overflow: auto;
-    word-break: normal;
-    word-wrap: normal;
-    white-space: pre;
 }

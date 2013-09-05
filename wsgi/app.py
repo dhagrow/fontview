@@ -14,7 +14,7 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 VIEWS_DIR = os.path.join(BASE_DIR, 'views')
 bottle.TEMPLATE_PATH.insert(0, VIEWS_DIR)
 
-CODE = inspect.getsource(collections.namedtuple) + '\n' + 'a' * 200
+CODE = inspect.getsource(collections.namedtuple)
 
 FONTS = ['consolas', 'droid sans mono', 'source code pro', 'ubuntu mono',
     'inconsolata', 'anonymous pro']
@@ -38,7 +38,7 @@ def favicon():
 def index():
     lexer = lexers.get_lexer_by_name("python", stripall=True)
     formatter = formatters.HtmlFormatter(
-        linenos=True, cssclass="source", style="monokai")
+        cssclass="source", style="monokai")
     output = pygments.highlight(CODE, lexer, formatter)
     return {
         'code': output,

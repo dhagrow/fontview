@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Font Previewer</title>
+    <title>FontView</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link id="bootstrap_style" href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/cyborg/bootstrap.min.css" rel="stylesheet">
     <link href="/static/css/style.css" rel="stylesheet">
@@ -19,7 +19,7 @@
   <body>
     <div class="container">
         <div class="page-header">
-        <h1>Preview</h1>
+        <h1>FontView</h1>
         </div>
     
         <div class="row">
