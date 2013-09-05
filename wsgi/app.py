@@ -16,8 +16,9 @@ CODE = """for i in range(10):
     print "test" * i
 """
 
-FONTS = ['consolas', 'menlo', 'droid sans mono', 'source code pro',
-    'ubuntu mono']
+FONTS = ['consolas', 'droid sans mono', 'source code pro', 'ubuntu mono',
+    'inconsolata', 'anonymous pro']
+# 'dejavu sans mono', 'envy code r', 'menlo', 'monaco', 'pragmata pro'
 
 THEMES = ['cyborg', 'slate', 'amelia', 'cerulean', 'cosmo', 'flatly',
     'journal', 'readable', 'simplex', 'spacelab', 'united']

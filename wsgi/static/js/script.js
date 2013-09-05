@@ -1,7 +1,11 @@
-WebFont.load({
-    google: {
-        families: ['Consolas']
-    }
+$("#font_select").change(function() {
+    var value = $("#font_select").val();
+    $("pre").css("font-family", value);
+    WebFont.load({
+        google: {
+            families: [value]
+        }
+    });
 });
 
 $("#theme_select").change(function() {
