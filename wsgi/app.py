@@ -14,6 +14,7 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 VIEWS_DIR = os.path.join(BASE_DIR, 'views')
 bottle.TEMPLATE_PATH.insert(0, VIEWS_DIR)
 
+DEFAULT_FONT = 'monospace'
 DEFAULT_STYLE = 'monokai'
 DEFAULT_THEME = 'cyborg'
 
@@ -21,7 +22,7 @@ CSS_CLASS = 'source'
 CODE = inspect.getsource(collections.namedtuple)
 
 FONTS = ['consolas', 'droid sans mono', 'source code pro', 'ubuntu mono',
-    'inconsolata', 'anonymous pro']
+    'inconsolata', 'anonymous pro', 'monospace']
 # 'dejavu sans mono', 'envy code r', 'menlo', 'monaco', 'pragmata pro'
 
 THEMES = ['cyborg', 'slate', 'amelia', 'cerulean', 'cosmo', 'flatly',
@@ -41,6 +42,7 @@ def favicon():
 @bottle.view('index')
 def index():
     query = bottle.request.query
+    font = query.get('font', DEFAULT_FONT)
     style = query.get('style', DEFAULT_STYLE)
     theme = query.get('theme', DEFAULT_THEME)
     
@@ -49,9 +51,10 @@ def index():
     output = pygments.highlight(CODE, lexer, formatter)
     return {
         'code': output,
-        'fonts': FONTS,
+        'font': font,
         'style': style,
         'theme': theme,
+        'fonts': FONTS,
         'styles': styles.get_all_styles(),
         'themes': THEMES,
         }

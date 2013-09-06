@@ -18,17 +18,21 @@
         <div class="page-header">
         <h1>FontView</h1>
         </div>
-    
+        
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
             <form class="form-horizontal" role="form">
                 <div class="col-md-6">
                 <label for="font_select">font
                 <select id="font_select" class="form-control input-sm">
-                  <option selected>Browser Default</option>
-                %for font in sorted(fonts):
-                  <option>{{ font.title() }}</option>
-                %end
+              %for item in sorted(fonts, key=lambda x: '' if x == 'monospace' else x):
+                  %title = item.title() if item != 'monospace' else 'Browser Default'
+                  %name = item.lower().replace(' ', '')
+                  %selected = ' selected' if name == font else ''
+                  <option {{ selected }} value="{{ item.title() }}">
+                    {{ title }}
+                  </option>
+              %end
                 </select>
                 </label>
                 
