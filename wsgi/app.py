@@ -14,6 +14,9 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 VIEWS_DIR = os.path.join(BASE_DIR, 'views')
 bottle.TEMPLATE_PATH.insert(0, VIEWS_DIR)
 
+DEFAULT_STYLE = 'monokai'
+DEFAULT_THEME = 'cyborg'
+
 CSS_CLASS = 'source'
 CODE = inspect.getsource(collections.namedtuple)
 
@@ -37,12 +40,18 @@ def favicon():
 @bottle.get('/')
 @bottle.view('index')
 def index():
+    query = bottle.request.query
+    style = query.get('style', DEFAULT_STYLE)
+    theme = query.get('style', DEFAULT_THEME)
+    
     lexer = lexers.get_lexer_by_name("python", stripall=True)
     formatter = formatters.HtmlFormatter(cssclass=CSS_CLASS)
     output = pygments.highlight(CODE, lexer, formatter)
     return {
         'code': output,
         'fonts': FONTS,
+        'style': style,
+        'theme': theme,
         'styles': styles.get_all_styles(),
         'themes': THEMES,
         }

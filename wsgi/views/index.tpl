@@ -3,8 +3,8 @@
   <head>
     <title>FontView</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link id="bootstrap_style" href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/cyborg/bootstrap.min.css" rel="stylesheet">
-    <link id="source_style" href="/style/monokai" rel="stylesheet">
+    <link id="bootstrap_style" href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/{{ theme }}/bootstrap.min.css" rel="stylesheet">
+    <link id="source_style" href="/style/{{ style }}" rel="stylesheet">
     <link href="/static/css/style.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
@@ -33,9 +33,15 @@
                 
                 <label for="style_select">style
                 <select id="style_select" class="form-control input-sm">
-                %for style in sorted(styles):
-                  <option>{{ style.title() }}</option>
+              %for item in sorted(styles):
+                %if item == style:
+                  <option selected>
+                %else:
+                  <option>
                 %end
+                    {{ item.title() }}
+                  </option>
+              %end
                 </select>
                 </label>
                 </div>
@@ -43,9 +49,15 @@
                 <div class="col-md-2 col-md-offset-4">
                 <label for="theme_select">theme
                 <select id="theme_select" class="form-control input-sm">
-                %for theme in sorted(themes):
-                  <option>{{ theme.title() }}</option>
+              %for item in sorted(themes):
+                %if item == theme:
+                  <option selected>
+                %else:
+                  <option>
                 %end
+                    {{ item.title() }}
+                  </option>
+              %end
                 </select>
                 </label>
                 </div>
