@@ -42,7 +42,7 @@ def favicon():
 def index():
     query = bottle.request.query
     style = query.get('style', DEFAULT_STYLE)
-    theme = query.get('style', DEFAULT_THEME)
+    theme = query.get('theme', DEFAULT_THEME)
     
     lexer = lexers.get_lexer_by_name("python", stripall=True)
     formatter = formatters.HtmlFormatter(cssclass=CSS_CLASS)
