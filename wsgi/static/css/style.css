@@ -1,3 +1,7 @@
+body {
+    margin-right: 50px;
+}
+
 pre {
     background: initial;
     border-color: #4B4B4B;
@@ -15,4 +19,8 @@ span {
 
 .source {
     border-radius: 4px;
+}
+
+#permalink {
+    padding-top: 10px
 }
