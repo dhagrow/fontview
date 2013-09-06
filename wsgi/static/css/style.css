@@ -7,6 +7,8 @@ pre {
     border-color: #4B4B4B;
     font-family: monospace;
     overflow: auto;
+    overflow-wrap: initial;
+    white-space: pre;
 }
 
 span {
@@ -19,6 +21,10 @@ span {
 
 .source {
     border-radius: 4px;
+}
+
+.affix {
+    right: 50px;
 }
 
 #permalink {

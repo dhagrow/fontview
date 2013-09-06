@@ -22,7 +22,7 @@
           </div>
         </div>
         
-        <div class="col-md-2">
+        <div class="col-md-2" data-spy="affix">
             <div class="page-header">
               <h1>FontView</h1>
             </div>
@@ -35,7 +35,7 @@
                   %title = item.title() if item != 'monospace' else 'Browser Default'
                   %name = item.lower().replace(' ', '')
                   %selected = ' selected' if name == font else ''
-                  <option {{ selected }} value="{{ item.title() }}">
+                  <option value="{{ item.title() }}"{{ selected }}>
                     {{ title }}
                   </option>
               %end
@@ -79,6 +79,7 @@
     </div> <!-- container -->
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/webfont/1.3.0/webfont.js"></script>
     <script src="/static/js/script.js"></script>
   </body>
