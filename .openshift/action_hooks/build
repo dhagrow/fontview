@@ -9,6 +9,8 @@
 REDIS_VERSION=2.6.16
 MAKE_IS_DONE="no"
 
+echo "Checking build of Redis ${REDIS_VERSION}"
+
 if [ ! -d ${OPENSHIFT_DATA_DIR}redis ]; then
   cd ${OPENSHIFT_TMP_DIR}
   if [ ! -d redis-${REDIS_VERSION} ]; then
