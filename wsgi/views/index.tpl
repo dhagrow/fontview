@@ -25,6 +25,7 @@
                 <div class="col-md-6">
                 <label for="font_select">font
                 <select id="font_select" class="form-control input-sm">
+                  <option selected>Browser Default</option>
                 %for font in sorted(fonts):
                   <option>{{ font.title() }}</option>
                 %end

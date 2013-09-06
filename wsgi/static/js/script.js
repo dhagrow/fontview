@@ -1,5 +1,11 @@
 $("#font_select").change(function() {
     var value = $("#font_select").val();
+    
+    if (value == "Browser Default") {
+        $("pre").css("font-family", "monospace");
+        return;
+    }
+    
     $("pre").css("font-family", value);
     WebFont.load({
         google: {
