@@ -62,9 +62,9 @@ def style(style):
     formatter = formatters.HtmlFormatter(cssclass=CSS_CLASS, style=style)
     return formatter.get_style_defs()
 
-def run():
+def run(debug=False):
     bottle.run(host='localhost', port=22344, server='waitress',
-        reloader=True, debug=True)
+        reloader=debug, debug=debug)
 
 if __name__ == '__main__':
-    run()
+    run(debug=True)
