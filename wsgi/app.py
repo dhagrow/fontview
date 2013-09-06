@@ -14,6 +14,7 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 VIEWS_DIR = os.path.join(BASE_DIR, 'views')
 bottle.TEMPLATE_PATH.insert(0, VIEWS_DIR)
 
+CSS_CLASS = 'source'
 CODE = inspect.getsource(collections.namedtuple)
 
 FONTS = ['consolas', 'droid sans mono', 'source code pro', 'ubuntu mono',
@@ -37,16 +38,20 @@ def favicon():
 @bottle.view('index')
 def index():
     lexer = lexers.get_lexer_by_name("python", stripall=True)
-    formatter = formatters.HtmlFormatter(
-        cssclass="source", style="monokai")
+    formatter = formatters.HtmlFormatter(cssclass=CSS_CLASS)
     output = pygments.highlight(CODE, lexer, formatter)
     return {
         'code': output,
-        'style': formatter.get_style_defs(),
         'fonts': FONTS,
         'styles': styles.get_all_styles(),
         'themes': THEMES,
         }
+
+@bottle.get('/style/<style>')
+def style(style):
+    bottle.response.headers['content-type'] = 'text/css'
+    formatter = formatters.HtmlFormatter(cssclass=CSS_CLASS, style=style)
+    return formatter.get_style_defs()
 
 def run():
     bottle.run(host='localhost', port=22344, server='waitress',

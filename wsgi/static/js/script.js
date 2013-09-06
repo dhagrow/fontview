@@ -8,6 +8,12 @@ $("#font_select").change(function() {
     });
 });
 
+$("#style_select").change(function() {
+    var style = $("#style_select").val().toLowerCase();
+    var url = "/style/" + style;
+    $("#source_style").attr("href", url);
+});
+
 $("#theme_select").change(function() {
     var value = $("#theme_select").val().toLowerCase();
     var url = "//netdna.bootstrapcdn.com/bootswatch/3.0.0/" + value + "/bootstrap.min.css";

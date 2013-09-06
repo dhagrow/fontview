@@ -4,11 +4,8 @@
     <title>FontView</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link id="bootstrap_style" href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/cyborg/bootstrap.min.css" rel="stylesheet">
+    <link id="source_style" href="/style/monokai" rel="stylesheet">
     <link href="/static/css/style.css" rel="stylesheet">
-    
-    <style>
-{{ style }}
-    </style>
 
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"></script>
