@@ -74,6 +74,12 @@
             <hr />
             <a id="permalink">permalink</a>
             
+            <hr />
+            <ins class="adsbygoogle"
+                style="display:inline-block;width:160px;height:600px"
+                data-ad-client="ca-pub-7855868022998589"
+                data-ad-slot="3376498158"></ins>
+            
         </div> <!-- col -->
       </div> <!-- row -->
     </div> <!-- container -->
@@ -82,5 +88,11 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/webfont/1.3.0/webfont.js"></script>
     <script src="/static/js/script.js"></script>
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
   </body>
 </html>
