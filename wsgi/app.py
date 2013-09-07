@@ -38,6 +38,10 @@ def static(path):
 def favicon():
     return bottle.abort(404)
 
+@bottle.get('/robots.txt')
+def robots():
+    return bottle.static_file('robots.txt', root=STATIC_DIR)
+
 @bottle.get('/')
 @bottle.view('index')
 def index():
