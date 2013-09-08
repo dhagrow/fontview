@@ -1,0 +1,33 @@
+body {
+    margin-right: 50px;
+}
+
+pre {
+    background: transparent;
+    border-color: #4B4B4B;
+    font-family: monospace;
+    font-size: 10pt;
+    overflow: auto;
+    overflow-wrap: initial;
+    white-space: pre;
+}
+
+span {
+    white-space: nowrap;
+}
+
+.sourcetable {
+    background: initial;
+}
+
+.source {
+    border-radius: 4px;
+}
+
+.affix {
+    right: 50px;
+}
+
+#permalink {
+    padding-top: 10px
+}
