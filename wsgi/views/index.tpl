@@ -30,13 +30,24 @@
             <form class="form" role="form">
               <label for="font_select">font
                 <select id="font_select" class="form-control input-sm">
-                %key = lambda x: '' if x == 'monospace' else x
+              %key = lambda x: '' if x == 'monospace' else x
               %for item in sorted(fonts, key=key):
                   %title = item.title() if item != 'monospace' else 'Browser Default'
                   %name = item.lower().replace(' ', '')
                   %selected = ' selected' if name == font else ''
                   <option value="{{ item.title() }}"{{ selected }}>
                     {{ title }}
+                  </option>
+              %end
+                </select>
+              </label>
+              
+              <label for="size_select">size
+                <select id="size_select" class="form-control input-sm">
+              %for item in range(6, 21):
+                  %selected = ' selected' if item == size else ''
+                  <option value="{{ item }}"{{ selected }}>
+                    {{ item }} pt
                   </option>
               %end
                 </select>
@@ -71,7 +82,6 @@
               </label>
             </form>
             
-            <hr />
             <a id="permalink">permalink</a>
             
             <hr />

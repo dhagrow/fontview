@@ -15,6 +15,12 @@ $("#font_select").change(function() {
     update_permalink()
 });
 
+$("#size_select").change(function() {
+    var size = $("#size_select").val();
+    $("pre").css("font-size", size + "pt");
+    update_permalink();
+});
+
 $("#style_select").change(function() {
     var style = $("#style_select").val().toLowerCase();
     var url = "/style/" + style;
@@ -34,13 +40,17 @@ $("#theme_select").change(function() {
 
 function update_permalink() {
     var font = $("#font_select").val().replace(/\s*/g, "").toLowerCase();
+    var size = $("#size_select").val();
     var style = $("#style_select").val().toLowerCase();
     var theme = $("#theme_select").val().toLowerCase();
     
-    var link = "/?font=" + font + "&style=" + style + "&theme=" + theme;
+    var link = "/?font=" + font + "&size=" + size + "&style=" + style +
+               "&theme=" + theme;
     $("#permalink").attr("href", link);
 }
 
 $(document).ready(function() {
+    $("#font_select").change();
+    $("#size_select").change();
     update_permalink();
 });

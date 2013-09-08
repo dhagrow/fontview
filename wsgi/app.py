@@ -15,6 +15,7 @@ VIEWS_DIR = os.path.join(BASE_DIR, 'views')
 bottle.TEMPLATE_PATH.insert(0, VIEWS_DIR)
 
 DEFAULT_FONT = 'monospace'
+DEFAULT_SIZE = 10
 DEFAULT_STYLE = 'monokai'
 DEFAULT_THEME = 'cyborg'
 
@@ -47,6 +48,7 @@ def robots():
 def index():
     query = bottle.request.query
     font = query.get('font', DEFAULT_FONT)
+    size = query.get('size', DEFAULT_SIZE)
     style = query.get('style', DEFAULT_STYLE)
     theme = query.get('theme', DEFAULT_THEME)
     
@@ -56,6 +58,7 @@ def index():
     return {
         'code': output,
         'font': font,
+        'size': size,
         'style': style,
         'theme': theme,
         'fonts': FONTS,

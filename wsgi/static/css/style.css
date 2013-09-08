@@ -6,6 +6,7 @@ pre {
     background: initial;
     border-color: #4B4B4B;
     font-family: monospace;
+    font-size: 10pt;
     overflow: auto;
     overflow-wrap: initial;
     white-space: pre;
