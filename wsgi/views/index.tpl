@@ -45,7 +45,7 @@
               <label for="size_select">size
                 <select id="size_select" class="form-control input-sm">
               %for item in range(6, 21):
-                  %selected = ' selected' if item == size else ''
+                  %selected = ' selected' if str(item) == size else ''
                   <option value="{{ item }}"{{ selected }}>
                     {{ item }} pt
                   </option>

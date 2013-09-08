@@ -15,7 +15,7 @@ VIEWS_DIR = os.path.join(BASE_DIR, 'views')
 bottle.TEMPLATE_PATH.insert(0, VIEWS_DIR)
 
 DEFAULT_FONT = 'monospace'
-DEFAULT_SIZE = 10
+DEFAULT_SIZE = '10'
 DEFAULT_STYLE = 'monokai'
 DEFAULT_THEME = 'cyborg'
 
