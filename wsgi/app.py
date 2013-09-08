@@ -47,10 +47,10 @@ def robots():
 @bottle.view('index')
 def index():
     query = bottle.request.query
-    font = query.get('font', DEFAULT_FONT)
-    size = query.get('size', DEFAULT_SIZE)
-    style = query.get('style', DEFAULT_STYLE)
-    theme = query.get('theme', DEFAULT_THEME)
+    font = query.get('font', DEFAULT_FONT).strip()
+    size = query.get('size', DEFAULT_SIZE).strip()
+    style = query.get('style', DEFAULT_STYLE).strip()
+    theme = query.get('theme', DEFAULT_THEME).strip()
     
     lexer = lexers.get_lexer_by_name("python", stripall=True)
     formatter = formatters.HtmlFormatter(cssclass=CSS_CLASS)

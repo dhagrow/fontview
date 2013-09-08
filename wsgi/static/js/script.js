@@ -1,7 +1,3 @@
-function strip(str) {
-    return str.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
-}
-
 $("#font_select").change(function() {
     var font = $("#font_select").val();
     
@@ -44,9 +40,9 @@ $("#theme_select").change(function() {
 
 function update_permalink() {
     var font = $("#font_select").val().replace(/\s*/g, "").toLowerCase();
-    var size = strip($("#size_select").val());
-    var style = strip($("#style_select").val().toLowerCase());
-    var theme = strip($("#theme_select").val().toLowerCase());
+    var size = $("#size_select").val();
+    var style = $("#style_select").val().toLowerCase();
+    var theme = $("#theme_select").val().toLowerCase();
     
     var link = "/?font=" + font + "&size=" + size + "&style=" + style +
                "&theme=" + theme;
