@@ -1,4 +1,4 @@
-function strip(s) {
+function strip(str) {
     return str.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
 }
 
