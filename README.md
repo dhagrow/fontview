@@ -19,16 +19,16 @@ and [WebFont Loader](https://github.com/typekit/webfontloader).
 Getting Started
 ---------------
 
-To use fontview, first setup and activate a virtual environment::
+To use fontview, first setup and activate a virtual environment:
 
     $ virtualenv env -p /usr/bin/python3
     $ . env/bin/activate
 
-Install the requirements::
+Install the requirements:
 
     pip install -r requirements.txt
 
-Then, start the server (currently starts on port 22344)::
+Then, start the server (currently starts on port 22344):
 
     python wsgi/app.py
 
