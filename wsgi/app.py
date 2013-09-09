@@ -1,5 +1,6 @@
 import os
 import inspect
+import logging
 import collections
 
 import bottle
@@ -23,16 +24,18 @@ CSS_CLASS = 'source'
 CODE = inspect.getsource(collections.namedtuple)
 
 FONTS = ['consolas', 'droid sans mono', 'source code pro', 'ubuntu mono',
-    'inconsolata', 'anonymous pro', 'monospace']
+    'inconsolata', 'anonymous pro', 'monospace', 'liberation mono']
 # 'dejavu sans mono', 'envy code r', 'menlo', 'monaco', 'pragmata pro'
 
 THEMES = ['cyborg', 'slate', 'amelia', 'cerulean', 'cosmo', 'flatly',
     'journal', 'readable', 'simplex', 'spacelab', 'united']
 
+log = logging.getLogger('font')
 application = bottle.default_app()
 
 @bottle.get('/static/<path:path>')
 def static(path):
+    log.debug('static: %s', path)
     return bottle.static_file(path, root=STATIC_DIR)
 
 @bottle.get('/favicon.ico')
@@ -73,6 +76,9 @@ def style(style):
     return formatter.get_style_defs()
 
 def run(debug=False):
+    if debug:
+        import sys
+        logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
     bottle.run(host='localhost', port=22344, server='waitress',
         reloader=debug, debug=debug)
 

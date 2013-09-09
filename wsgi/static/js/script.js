@@ -1,3 +1,5 @@
+local_fonts = ['Liberation Mono'];
+
 $("#font_select").change(function() {
     var font = $("#font_select").val();
     
@@ -6,13 +8,21 @@ $("#font_select").change(function() {
     if (font == "Monospace")
         return;
     
-    WebFont.load({
-        google: {
+    var config = {};
+    if ($.inArray(font, local_fonts) != -1) {
+        config.custom = {
+            families: [font],
+            urls: ['/static/css/fonts.css']
+        };
+    } else {
+        config.google = {
             families: [font]
-        }
-    });
+        };
+    }
     
-    update_permalink()
+    WebFont.load(config);
+    
+    update_permalink();
 });
 
 $("#size_select").change(function() {
