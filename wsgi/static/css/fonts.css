@@ -1,4 +1,11 @@
 @font-face {
+    font-family: 'DejaVu Sans Mono';
+    src: url('/static/fonts/DejaVuSansMono.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'Liberation Mono';
     src: url('/static/fonts/LiberationMono-Regular-webfont.eot');
     src: url('/static/fonts/LiberationMono-Regular-webfont.eot?#iefix') format('embedded-opentype'),

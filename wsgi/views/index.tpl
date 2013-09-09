@@ -32,10 +32,10 @@
                 <select id="font_select" class="form-control input-sm">
               %key = lambda x: '' if x == 'monospace' else x
               %for item in sorted(fonts, key=key):
-                  %title = item.title() if item != 'monospace' else 'Browser Default'
+                  %title = item if item != 'monospace' else 'Browser Default'
                   %name = item.lower().replace(' ', '')
                   %selected = ' selected' if name == font else ''
-                  <option value="{{ item.title() }}"{{ selected }}>
+                  <option value="{{ item }}"{{ selected }}>
                     {{ title }}
                   </option>
               %end

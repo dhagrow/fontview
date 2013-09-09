@@ -1,11 +1,11 @@
-local_fonts = ['Liberation Mono'];
+local_fonts = ['DejaVu Sans Mono', 'Liberation Mono'];
 
 $("#font_select").change(function() {
     var font = $("#font_select").val();
     
     $("html").attr("class", "");
     $("pre").css("font-family", font);
-    if (font == "Monospace")
+    if (font == "monospace")
         return;
     
     var config = {};

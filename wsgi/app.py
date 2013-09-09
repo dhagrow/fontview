@@ -23,9 +23,10 @@ DEFAULT_THEME = 'cyborg'
 CSS_CLASS = 'source'
 CODE = inspect.getsource(collections.namedtuple)
 
-FONTS = ['consolas', 'droid sans mono', 'source code pro', 'ubuntu mono',
-    'inconsolata', 'anonymous pro', 'monospace', 'liberation mono']
-# 'dejavu sans mono', 'envy code r', 'menlo', 'monaco', 'pragmata pro'
+FONTS = ['Consolas', 'Droid Sans Mono', 'Source Code Pro', 'Ubuntu Mono',
+    'Inconsolata', 'Anonymous Pro', 'monospace', 'Liberation Mono',
+    'DejaVu Sans Mono']
+# 'envy code r', 'menlo', 'monaco', 'pragmata pro'
 
 THEMES = ['cyborg', 'slate', 'amelia', 'cerulean', 'cosmo', 'flatly',
     'journal', 'readable', 'simplex', 'spacelab', 'united']
