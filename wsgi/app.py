@@ -25,8 +25,8 @@ CODE = inspect.getsource(collections.namedtuple)
 
 FONTS = ['Consolas', 'Droid Sans Mono', 'Source Code Pro', 'Ubuntu Mono',
     'Inconsolata', 'Anonymous Pro', 'monospace', 'Liberation Mono',
-    'DejaVu Sans Mono']
-# 'envy code r', 'menlo', 'monaco', 'pragmata pro'
+    'DejaVu Sans Mono', 'Envy Code R', 'Bitstream Vera Sans Mono']
+# 'menlo', 'monaco', 'pragmata pro'
 
 THEMES = ['cyborg', 'slate', 'amelia', 'cerulean', 'cosmo', 'flatly',
     'journal', 'readable', 'simplex', 'spacelab', 'united']

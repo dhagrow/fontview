@@ -1,4 +1,5 @@
-local_fonts = ['DejaVu Sans Mono', 'Liberation Mono'];
+local_fonts = ['DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
+    'Envy Code R', 'Liberation Mono'];
 
 $("#font_select").change(function() {
     var font = $("#font_select").val();
