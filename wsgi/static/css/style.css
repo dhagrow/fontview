@@ -16,6 +16,16 @@ span {
     white-space: nowrap;
 }
 
+.subtitle {
+    font-size: 10pt;
+    text-align: right;
+    vertical-align: middle;
+    padding: 0px;
+    margin: 0px;
+    margin-top: -6px;
+    margin-bottom: -2px;
+}
+
 .sourcetable {
     background: initial;
 }

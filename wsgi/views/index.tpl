@@ -24,7 +24,11 @@
         
         <div class="col-md-2" data-spy="affix">
             <div class="page-header">
-              <h1>FontView</h1>
+              <h2>FontView</h2>
+              <div class="subtitle">
+                <a href="https://github.com/dhagrow/fontview">source</a>
+                <div class="g-plusone" data-size="small" data-annotation="none"></div>
+              </div>
             </div>
             
             <form class="form" role="form">
