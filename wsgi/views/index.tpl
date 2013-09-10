@@ -28,6 +28,7 @@
               <div class="subtitle">
                 <a href="https://github.com/dhagrow/fontview">source</a>
                 <div class="g-plusone" data-size="small" data-annotation="none"></div>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
               </div>
             </div>
             
