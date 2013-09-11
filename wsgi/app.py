@@ -1,9 +1,12 @@
 import os
 import inspect
 import logging
+import datetime
 import collections
 
+import redis
 import bottle
+import msgpack
 import pygments
 from pygments import lexers
 from pygments import styles
@@ -34,6 +37,13 @@ THEMES = ['cyborg', 'slate', 'amelia', 'cerulean', 'cosmo', 'flatly',
 log = logging.getLogger('font')
 application = bottle.default_app()
 
+# stats
+redis_args = {}
+REDIS_ENV = {'HTTP_USER_AGENT', 'HTTP_COOKIE', 'HTTP_ACCEPT_LANGUAGE'}
+
+def rconnect():
+    return redis.StrictRedis(**redis_args)
+
 @bottle.get('/static/<path:path>')
 def static(path):
     log.debug('static: %s', path)
@@ -50,12 +60,28 @@ def robots():
 @bottle.get('/')
 @bottle.view('index')
 def index():
+    r = rconnect()
+    ip = bottle.request['REMOTE_ADDR']
+    
+    # count unique visits
+    dt = datetime.datetime.now()
+    r.sadd('fv:visits:{:%Y-%m-%d}'.format(dt), ip)
+    
+    # grab env
+    env = {k: v for k, v in bottle.request.environ.items() if k in REDIS_ENV}
+    r.hset('fv:env', ip, msgpack.dumps(env))
+    
+    # get arguments
     query = bottle.request.query
     font = query.get('font', DEFAULT_FONT).strip()
     size = query.get('size', DEFAULT_SIZE).strip()
     style = query.get('style', DEFAULT_STYLE).strip()
     theme = query.get('theme', DEFAULT_THEME).strip()
     
+    # log permatheme
+    r.hincrby('fv:themes', '{}_{}_{}-{}'.format(font, size, style, theme))
+    
+    # output
     lexer = lexers.get_lexer_by_name("python", stripall=True)
     formatter = formatters.HtmlFormatter(cssclass=CSS_CLASS)
     output = pygments.highlight(CODE, lexer, formatter)
@@ -80,6 +106,10 @@ def run(debug=False):
     if debug:
         import sys
         logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
+        redis_args = {'host': 'localhost'}
+    else:
+        redis_args = {'unix_socket_path': '/tmp/redis.sock'}
+    
     bottle.run(host='localhost', port=22344, server='waitress',
         reloader=debug, debug=debug)
 
