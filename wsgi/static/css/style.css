@@ -2,6 +2,10 @@ body {
     margin-right: 50px;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 pre {
     background: transparent;
     border-color: #4B4B4B;
@@ -36,6 +40,11 @@ span {
 
 .affix {
     right: 50px;
+}
+
+.input-sm {
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 #permalink {

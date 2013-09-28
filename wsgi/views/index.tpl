@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link id="bootstrap_style" href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/{{ theme }}/bootstrap.min.css" rel="stylesheet">
     <link id="source_style" href="/style/{{ style }}" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
     <link href="/static/css/style.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
@@ -25,11 +26,17 @@
         <div class="col-md-2" data-spy="affix">
             <div class="page-header">
               <h2>FontView</h2>
-              <div class="subtitle">
-                <a href="https://github.com/dhagrow/fontview">source</a>
-                <div class="g-plusone" data-size="small" data-annotation="none"></div>
-                <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
-              </div>
+              <h4 class="text-right">
+                <a target="_blank" href="https://github.com/dhagrow/fontview">
+                  <i class="icon-github-sign"></i>
+                </a>
+                <a target="_blank" href="https://twitter.com/intent/tweet?url=http://fonts.dhagrow.org/&text=Preview Programming Fonts &amp; styles">
+                  <i class="icon-twitter-sign"></i>
+                </a>
+                <a target="_blank" href="https://plus.google.com/share?url=http://fonts.dhagrow.org/">
+                  <i class="icon-google-plus-sign"></i>
+                </a>
+              </h4>
             </div>
             
             <form class="form" role="form">
