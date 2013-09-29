@@ -25,6 +25,7 @@ DEFAULT_THEME = 'cyborg'
 
 CSS_CLASS = 'source'
 CODE = inspect.getsource(collections.namedtuple)
+#CODE = open(os.path.join(STATIC_DIR, 'snippets/4d_array.c')).read()
 
 FONTS = ['Consolas', 'Droid Sans Mono', 'Source Code Pro', 'Ubuntu Mono',
     'Inconsolata', 'Anonymous Pro', 'monospace', 'Liberation Mono',
@@ -38,7 +39,7 @@ log = logging.getLogger('font')
 application = bottle.default_app()
 
 # stats
-redis_args = {}
+redis_args = {'unix_socket_path': '/tmp/redis.sock'}
 REDIS_ENV = {'HTTP_USER_AGENT', 'HTTP_COOKIE', 'HTTP_ACCEPT_LANGUAGE'}
 
 def rconnect():
@@ -46,7 +47,6 @@ def rconnect():
 
 @bottle.get('/static/<path:path>')
 def static(path):
-    log.debug('static: %s', path)
     return bottle.static_file(path, root=STATIC_DIR)
 
 @bottle.get('/favicon.ico')
@@ -83,6 +83,7 @@ def index():
     
     # output
     lexer = lexers.get_lexer_by_name("python", stripall=True)
+    #lexer = lexers.get_lexer_by_name("c", stripall=True)
     formatter = formatters.HtmlFormatter(cssclass=CSS_CLASS)
     output = pygments.highlight(CODE, lexer, formatter)
     return {
@@ -107,8 +108,6 @@ def run(debug=False):
         import sys
         logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
         redis_args = {'host': 'localhost'}
-    else:
-        redis_args = {'unix_socket_path': '/tmp/redis.sock'}
     
     bottle.run(host='localhost', port=22344, server='waitress',
         reloader=debug, debug=debug)
