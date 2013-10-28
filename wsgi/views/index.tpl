@@ -15,31 +15,22 @@
   </head>
   
   <body>
-    <div class="container">
       <div class="row">
-        <div class="col-md-10">
-          <div class="well">
-            {{! code }}
-          </div>
+        <div class="col-sm-11">
+          {{! code }}
         </div>
         
-        <div class="col-md-2" data-spy="affix">
-            <div class="page-header">
-              <h2>FontView</h2>
-              <h4 class="text-right">
-                <a target="_blank" href="https://github.com/dhagrow/fontview">
-                  <i class="icon-github-sign"></i>
-                </a>
-                <a target="_blank" href="https://twitter.com/intent/tweet?url=http://fonts.dhagrow.org/&text=Preview Programming Fonts &amp; styles">
-                  <i class="icon-twitter-sign"></i>
-                </a>
-                <a target="_blank" href="https://plus.google.com/share?url=http://fonts.dhagrow.org/">
-                  <i class="icon-google-plus-sign"></i>
-                </a>
-              </h4>
-            </div>
+        <div class="col-sm-1" data-spy="affix">
+            <ins class="adsbygoogle"
+                style="display:inline-block;width:160px;height:600px"
+                data-ad-client="ca-pub-7855868022998589"
+                data-ad-slot="3376498158"></ins>
             
-            <form class="form" role="form">
+        </div>
+      </div>
+        
+        <div id="footer" class="navbar navbar-default navbar-fixed-bottom">
+            <form class="form-inline">
               <label for="font_select">font
                 <select id="font_select" class="form-control input-sm">
               %key = lambda x: '' if x == 'monospace' else x
@@ -56,7 +47,7 @@
               
               <label for="size_select">size
                 <select id="size_select" class="form-control input-sm">
-              %for item in range(6, 21):
+              %for item in range(1, 65):
                   %selected = ' selected' if str(item) == size else ''
                   <option value="{{ item }}"{{ selected }}>
                     {{ item }} pt
@@ -92,19 +83,21 @@
               %end
                 </select>
               </label>
+        
+              <a id="permalink">permalink</a>
+              <span class="links pull-right">
+                <a target="_blank" href="https://github.com/dhagrow/fontview">
+                  <i class="icon-github-sign"></i>
+                </a>
+                <a target="_blank" href="https://twitter.com/intent/tweet?url=http://fonts.dhagrow.org/&text=Preview Programming Fonts &amp; styles">
+                  <i class="icon-twitter-sign"></i>
+                </a>
+                <a target="_blank" href="https://plus.google.com/share?url=http://fonts.dhagrow.org/">
+                  <i class="icon-google-plus-sign"></i>
+                </a>
+              </span>
             </form>
-            
-            <a id="permalink">permalink</a>
-            
-            <hr />
-            <ins class="adsbygoogle"
-                style="display:inline-block;width:160px;height:600px"
-                data-ad-client="ca-pub-7855868022998589"
-                data-ad-slot="3376498158"></ins>
-            
-        </div> <!-- col -->
-      </div> <!-- row -->
-    </div> <!-- container -->
+        </div>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/js/bootstrap.min.js"></script>
