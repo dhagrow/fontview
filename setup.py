@@ -1,6 +1,6 @@
 from setuptools import setup
 
-setup(name='fontview', version='0.1.5',
+setup(name='fontview', version='0.1.6',
     description='A font and styling previewer for programmers.',
     author='Miguel Turner',
     author_email='cymrow at gmail.com',
